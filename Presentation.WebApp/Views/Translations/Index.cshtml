@@ -1,0 +1,74 @@
+﻿@model List<TranslateViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="row">
+    <table class="table table-bordered table-responsive text-center table-striped" dir="rtl">
+        <thead>
+        <td>Name</td>
+        @*@foreach (var item in (List<string>)ViewData["langNames"])
+            {
+                <td>@item</td>
+            }*@
+        <td>Language</td>
+        <td>Translation</td>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@*@item.ID*@</td>
+                    <td>@item.Name</td>
+                    <td>@item.Language</td>
+                    <td>@item.Translation</td>
+                    @*@foreach (var l in item.Translations)
+                        {
+                            <td>
+                                <div class="form-group">
+                                    <form method="post" action="translations/SaveTranslate">
+                                        <input class="form-control" name="value" type="text" value="@l.Value" />
+                                        <input name="lang" type="hidden" value="@l.Key" />
+                                        <input name="id" type="hidden" value="@item.ID" />
+                                        <button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-floppy-disk"></i></button>
+                                    </form>
+                                </div>
+                            </td>
+                        }*@
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+@section Sidebar{
+    <ol>
+        <li>کارگزاری</li>
+        <li>گروه اصلی کالا</li>
+        <li>گروه کالا</li>
+        <li>زیر گروه کالا</li>
+        <li>کالا</li>
+        <li>ارز</li>
+        <li>عرضه کننده</li>
+        <li>تالار</li>
+        <li>تولید کننده</li>
+        <li>نوع قرارداد</li>
+        <li>واحد اندازه گیری</li>
+    </ol>
+}
+@section Footer{
+    <p>&copy; 2018 - Translation App</p>
+}
+@section Header{
+    <h1 style="background-color:#ff0000">سر تیتر</h1>
+}
+<style>
+    .td1 {
+        width: 100px;
+        border: 1px solid #0094ff;
+        text-align: center
+    }
+
+    table {
+        margin-top: 20px;
+    }
+</style>
