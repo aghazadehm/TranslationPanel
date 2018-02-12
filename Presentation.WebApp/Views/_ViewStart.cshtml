@@ -1,3 +1,6 @@
-﻿@{
+﻿@using Domain.Entities
+@{
     Layout = "_Layout";
+    ViewBag.PhraseTypes = new PhraseTypes().Items;
+    ViewBag.Languages = new Languages().Items;
 }

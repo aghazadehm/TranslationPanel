@@ -8,6 +8,6 @@ namespace Presentation.WebApp.Models
     public class TranslateGroupViewModel
     {
         public InfoTypeViewModel InfoType { get; set; }
-        public List<TranslateViewModel> Translations { get; set; }
+        public List<TranslatorViewModel> Translations { get; set; }
     }
 }

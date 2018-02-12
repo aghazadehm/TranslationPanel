@@ -28,6 +28,16 @@ namespace Translation.Application.Tests.Unit
             Assert.NotEmpty(sut.GetPhraseTypes());
         }
 
+        [Fact]
+        public void GetLanguages_shoud_load_languages()
+        {
+            var repository = Substitute.For<ITranslationRepository>();
+            var sut = new TranslationService(repository);
+            var fake = new FakeData();
+            var langs = sut.GetLanguages().Returns(fake.GetLanguages());
+            Assert.NotEmpty(sut.GetLanguages());
+        }
+
         [Theory]
         [InlineData("Talar", "Ar")]
         [InlineData("Commodity", "En")]
@@ -63,8 +73,6 @@ namespace Translation.Application.Tests.Unit
                 .WithTranslation(dto.Translation).Build();
             repository.Received(1).Save(ArgExt.Compare(expectedTranslate, new TranslatorEqualityComparer()));
         }
-
-
 
         [Fact]
         public void UpdateTranslate_should_update_translate()

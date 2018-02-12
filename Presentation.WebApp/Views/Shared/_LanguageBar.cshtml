@@ -1,0 +1,12 @@
+﻿@using Domain.Entities
+
+<div >
+    <ul>
+        @foreach (Language item in ViewBag.Languages)
+        {
+            <li>
+                @item.OriginName
+            </li>
+        }
+    </ul>
+</div>

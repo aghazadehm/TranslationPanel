@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@*@using Domain.Entities
+@model List<PhraseType>*@
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -22,7 +24,8 @@
         <div class="body-content" dir="rtl">
             <header>
                 @Html.Partial("_HeaderNavBar");
-                @RenderSection("Header", true)
+                @RenderSection("Header", true);
+                @Html.Partial("_LanguageBar")
                 @*<h1>سر تیتر</h1>*@
             </header>
             <hr />
@@ -32,7 +35,8 @@
                     @RenderBody()
                 </div>
                 <div class="col-md-2" dir="rtl">
-                    @RenderSection("Sidebar", true)
+                    @*@RenderSection("Sidebar", true)*@
+                    @Html.Partial("_Sidebar")
                 </div>
             </div>
             <hr />

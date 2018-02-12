@@ -4,6 +4,8 @@ namespace Translation.Application
 {
     public class PhraseTypeBuilder
     {
+        private int _id;
+        private string _title;
         private string _name;
 
         public PhraseTypeBuilder WithName(string name)
@@ -11,10 +13,19 @@ namespace Translation.Application
             _name = name;
             return this;
         }
-
+        public PhraseTypeBuilder WithTitle(string title)
+        {
+            _title = title;
+            return this;
+        }
+        public PhraseTypeBuilder WithId(int id)
+        {
+            _id = id;
+            return this;
+        }
         public PhraseType Build()
         {
-            return new PhraseType( _name);
+            return new PhraseType(_id, _name,_title);
         }
     }
 }

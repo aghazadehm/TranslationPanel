@@ -13,5 +13,6 @@ namespace Domain.Interfaces
         PhraseType GetPhraseTypeByName(string phraseType);
         Phrase GetPhraseById(int phraseId, PhraseType phraseType);
         IEnumerable<PhraseType> GetPhraseTypes();
+        IEnumerable<Language> GetLanguages();
     }
 }

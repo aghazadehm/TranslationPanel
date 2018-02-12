@@ -16,7 +16,7 @@ namespace Translation.Application
 
         public IEnumerable<Translator> GetPhrases(ToTranslateRequest request)
         {
-            return _repository.GetTranslators(request.PhraseType.Name, request.Language.Abbrevation);
+            return _repository.GetTranslators(request.PhraseType.Name, request.Language.EnglishAbbrevation);
         }
 
         public void CreateTranslate(CreateTranslateDTO dto)
@@ -31,6 +31,11 @@ namespace Translation.Application
         public IEnumerable<PhraseType> GetPhraseTypes()
         {
             return _repository.GetPhraseTypes();
+        }
+
+        public IEnumerable<Language> GetLanguages()
+        {
+            return _repository.GetLanguages();
         }
 
         private Phrase GetPhraseById(int phraseId, PhraseType phraseType)

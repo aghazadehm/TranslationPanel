@@ -9,19 +9,20 @@ namespace Presentation.WebApp.Controllers
 {
     public class TranslationsController : BaseController
     {
-        static List<TranslateViewModel> tl;
+        static List<TranslatorViewModel> tl;
         public TranslationsController()
         {
+
         }
         public IActionResult Index()
         {
-           tl = new List<TranslateViewModel>();
+           tl = new List<TranslatorViewModel>();
             var langs = new Dictionary<string, string>();
             langs.Add("En", "");
             langs.Add("Ar", "");
-            tl.Add(new TranslateViewModel() { ID = 1, Name = "رضا", Language = "Ar", Translation = "" });
-            tl.Add(new TranslateViewModel() { ID = 3, Name = "محمد", Language = "Ar", Translation = "" });
-            tl.Add(new TranslateViewModel() { ID = 2, Name = "فرهاد", Language = "Ar", Translation = "" });
+            tl.Add(new TranslatorViewModel() { Id = 101, PhraseId = 1, PhraseText = "رضا", PhraseTypeName = "commodity", LanguageAbbr = "Ar", Translation = "" });
+            tl.Add(new TranslatorViewModel() { Id = 303, PhraseId = 2, PhraseText = "محمد", PhraseTypeName = "commodity", LanguageAbbr = "Ar", Translation = "" });
+            tl.Add(new TranslatorViewModel() { Id = 202, PhraseId = 3, PhraseText = "فرهاد", PhraseTypeName = "commodity", LanguageAbbr = "Ar", Translation = "" });
             ViewData["langNames"] = new List<string> { "English", "العربی" };
             return View(tl);
         }
@@ -29,7 +30,7 @@ namespace Presentation.WebApp.Controllers
         [HttpPost]
         public IActionResult SaveTranslate(int id, string lang, string value)
         {
-            var item = tl.Find(x => x.ID == id);
+            var item = tl.Find(x => x.Id == id);
             item.Translation = value;
             ViewData["langNames"] = new List<string> { "English", "العربی" };
             return View("index", tl);

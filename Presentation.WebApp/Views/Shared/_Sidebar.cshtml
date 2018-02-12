@@ -1,0 +1,15 @@
+﻿@using Domain.Entities
+
+<div style="border: 1px dashed red; margin: 5px">
+    <h3> نوع داده پایه</h3>
+    <ul>
+        @foreach (PhraseType item in ViewBag.PhraseTypes)
+        {
+            <li>
+                @item.Title
+            </li>
+        }
+    </ul>
+</div>
+
+

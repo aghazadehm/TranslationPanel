@@ -10,7 +10,7 @@ namespace Domain.Entities.Tests.Util.EqualityComparers
         {
             return new EqualsBuilder()
                 //.Append(x.Language.Name, y.Language.Name)
-                .Append(x.Language.Abbrevation, y.Language.Abbrevation)
+                .Append(x.Language.EnglishAbbrevation, y.Language.EnglishAbbrevation)
                 .Append(x.Phrase.Id, y.Phrase.Id)
                 //.Append(x.Phrase.Text, y.Phrase.Text)
                 .Append(x.Phrase.PhraseType.Name, y.Phrase.PhraseType.Name)
@@ -23,7 +23,7 @@ namespace Domain.Entities.Tests.Util.EqualityComparers
             return new HashCodeBuilder()
                 .Append(obj.Id)
                 //.Append(obj.Language.Name)
-                .Append(obj.Language.Abbrevation)
+                .Append(obj.Language.EnglishAbbrevation)
                 .Append(obj.Phrase.Id)
                 //.Append(obj.Phrase.Text)
                 .Append(obj.Phrase.PhraseType.Name)

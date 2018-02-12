@@ -14,8 +14,9 @@ namespace Domain.Entities.Tests.Unit
         [Fact]
         public void When_create_translator_shoud_be_created()
         {
-            var lang = new Language("English", "En");
-            var type = new PhraseType("commodity");
+            var langs = new Languages();
+            var lang = langs[1];
+            var type = (new PhraseTypes())[7];
             var phrase = new Phrase(1, "گندم", type);
             int id = 1;
             string trans = "Wheat";
