@@ -6,7 +6,7 @@
     <table class="table table-bordered table-responsive text-center table-striped" dir="rtl">
         <thead>
             <tr>
-                <td>ID</td>
+                @*<td>ID</td>*@
                 <td>شناسه قلم داده</td>
                 <td>پارسی </td>
                 <td>گونه</td>
@@ -18,7 +18,7 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.Id</td>
+                    <td>@*@item.Id*@</td>
                     <td>@item.PhraseId</td>
                     <td>@item.PhraseText</td>
                     <td>@item.PhraseTypeName</td>
@@ -41,28 +41,14 @@
 
     </table>
 </div>
-@*@section Sidebar{
-        <ol>
-            <li>کارگزاری</li>
-            <li>گروه اصلی کالا</li>
-            <li>گروه کالا</li>
-            <li>زیر گروه کالا</li>
-            <li>کالا</li>
-            <li>ارز</li>
-            <li>عرضه کننده</li>
-            <li>تالار</li>
-            <li>تولید کننده</li>
-            <li>نوع قرارداد</li>
-            <li>واحد اندازه گیری</li>
-        </ol>
-    }*@
+
 @section Footer{
     <p>&copy; 2018 - Translation App</p>
 }
 @section Header{
     <h1 style="background-color:#ff0000">سر تیتر</h1>
 }
-<style>
+@*<style>
     .td1 {
         width: 100px;
         border: 1px solid #0094ff;
@@ -72,4 +58,4 @@
     table {
         margin-top: 20px;
     }
-</style>
+</style>*@
