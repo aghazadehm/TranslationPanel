@@ -1,12 +1,12 @@
 ﻿@using Domain.Entities
 
-<div >
-    <ul>
+<div class="btn btn-group">
+
         @foreach (Language item in ViewBag.Languages)
         {
-            <li>
-                @item.OriginName
-            </li>
+            <button class="btn btn-info">
+                <a href="?phraseTypeId=@ViewBag.phraseTypeId&languageId=@item.Id"> @item.OriginName</a>
+               
+            </button>
         }
-    </ul>
 </div>

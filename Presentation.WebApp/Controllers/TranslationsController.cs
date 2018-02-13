@@ -16,7 +16,8 @@ namespace Presentation.WebApp.Controllers
         }
         public IActionResult Index()
         {
-           tl = new List<TranslatorViewModel>();
+            ViewBag.ActiveType = 3;
+            tl = new List<TranslatorViewModel>();
             var langs = new Dictionary<string, string>();
             langs.Add("En", "");
             langs.Add("Ar", "");
@@ -25,6 +26,21 @@ namespace Presentation.WebApp.Controllers
             tl.Add(new TranslatorViewModel() { Id = 202, PhraseId = 3, PhraseText = "فرهاد", PhraseTypeName = "commodity", LanguageAbbr = "Ar", Translation = "" });
             ViewData["langNames"] = new List<string> { "English", "العربی" };
             return View(tl);
+        }
+
+        public IActionResult GetPhrases(int phraseTypeId, int languageId=0)
+        {
+            ViewBag.phraseTypeId = phraseTypeId;
+            ViewBag.LanguageId = languageId;
+            tl = new List<TranslatorViewModel>();
+            var langs = new Dictionary<string, string>();
+            langs.Add("En", "");
+            langs.Add("Ar", "");
+            tl.Add(new TranslatorViewModel() { Id = 101, PhraseId = 1, PhraseText = "رضا", PhraseTypeName = "commodity", LanguageAbbr = "Ar", Translation = "" });
+            tl.Add(new TranslatorViewModel() { Id = 303, PhraseId = 2, PhraseText = "محمد", PhraseTypeName = "commodity", LanguageAbbr = "Ar", Translation = "" });
+            tl.Add(new TranslatorViewModel() { Id = 202, PhraseId = 3, PhraseText = "فرهاد", PhraseTypeName = "commodity", LanguageAbbr = "Ar", Translation = "" });
+            ViewData["langNames"] = new List<string> { "English", "العربی" };
+            return View("index", tl);
         }
 
         [HttpPost]

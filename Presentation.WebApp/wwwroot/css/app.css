@@ -1,0 +1,19 @@
+﻿body {
+}
+
+/*.sidebar {
+    border: 1px dashed yellow;
+    margin: 5px;
+    font-size: x-large
+}*/
+
+    .sidebar .active {
+        color: green
+    }
+    .sidebar ul{
+        list-style-type: none;
+    }
+    /*.sidebar a{
+        color:black;
+
+    }*/
