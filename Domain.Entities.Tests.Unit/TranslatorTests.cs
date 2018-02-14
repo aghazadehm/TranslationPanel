@@ -1,5 +1,6 @@
 ﻿using Domain.Entities.Tests.Util.Builders;
 using Domain.Entities.Tests.Util.EqualityComparers;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Domain.Entities.Tests.Unit
@@ -15,13 +16,20 @@ namespace Domain.Entities.Tests.Unit
         public void When_create_translator_shoud_be_created()
         {
             var langs = new Languages();
-            var lang = langs[1];
-            var type = (new PhraseTypes())[7];
-            var phrase = new Phrase(1, "گندم", type);
+            int languageId = langs[1].Id;
+            int phreaseId = 1;
+            int phraseTypeId = 7;
+            var translatedPhrase = new TranslatedPhraseBuilder()
+                .WithLanguageId(languageId)
+                .WithPhraseId(phreaseId)
+                .WithPhraseTypeId(phraseTypeId)
+                .WithTranlate("Wheat").Build();
             int id = 1;
-            string trans = "Wheat";
-            Translator sut = _sutBuilder.WithId(id).WithPhrase(phrase).WithLanguage(lang).WithTranslation(trans).Build();
-            Translator expected = new Translator(id, phrase, lang, trans);
+            var translations = new List<Translation>(){ 
+                new Translation(0, lang, "Wheat")
+            };
+            Translator sut = _sutBuilder.WithId(id).WithPhrase(phrase).WithTranslations(translations).Build();
+            Translator expected = new Translator(id, phrase, translations);
 
             Assert.Equal(expected, sut, new TranslatorEqualityComparer());
         }

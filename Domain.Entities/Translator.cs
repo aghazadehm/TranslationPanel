@@ -7,27 +7,26 @@ namespace Domain.Entities
     public class Translator
     {
         protected Translator() { }
-        public Translator(int id, Phrase phrase, Language language, string translation)
+        public Translator(int id, Phrase phrase, List<Translation> translations)
         {
-            SetProperties(phrase, language, translation);
+            SetProperties(phrase, translations);
             Id = id;
         }
 
-        private void SetProperties(Phrase phrase, Language language, string translation)
+        private void SetProperties(Phrase phrase, List<Translation> translations)
         {
             //validation and set
             Phrase = phrase;
-            Language = language;
-            Translation = translation;
+            Translations = translations;
         }
         public Phrase Phrase { get; set; }
-        public Language Language { get; set; }
         public int Id { get; set; }
-        public string Translation { get; set; }
+        //public string Translation { get; set; }
+        public List<Translation> Translations { get; set; }
 
-        public void Update(Phrase phrase, Language language, string translation)
+        public void Update(Phrase phrase, List<Translation> translations)
         {
-            SetProperties(Phrase, Language, Translation);
+            SetProperties(phrase, Translations);
         }
     }
 }

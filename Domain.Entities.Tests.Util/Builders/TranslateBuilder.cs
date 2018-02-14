@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Domain.Entities.Tests.Util.Builders
 {
@@ -10,8 +11,7 @@ namespace Domain.Entities.Tests.Util.Builders
         }
         private int _id;
         private Phrase _phrase;
-        private Language _language;
-        private string _translation;
+        private List<Translation> _translations;
 
         public TranslateBuilder WithId(int id)
         {
@@ -23,19 +23,14 @@ namespace Domain.Entities.Tests.Util.Builders
             _phrase = phrase;
             return this;
         }
-        public TranslateBuilder WithLanguage(Language language)
+        public TranslateBuilder WithTranslations(List<Translation> translations)
         {
-            _language = language;
-            return this;
-        }
-        public TranslateBuilder WithTranslation(string translation)
-        {
-            _translation = translation;
+            _translations = translations;
             return this;
         }
         public Translator Build()
         {
-            return new Translator(_id, _phrase, _language, _translation);
+            return new Translator(_id, _phrase, _translations);
         }
     }
 }

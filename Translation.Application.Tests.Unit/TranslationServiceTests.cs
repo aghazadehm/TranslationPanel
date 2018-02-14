@@ -6,6 +6,7 @@ using Domain.Entities.Tests.Util.NSubstituteExtentions;
 using Domain.Interfaces;
 using NSubstitute;
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Translation.Application.Tests.Unit
@@ -65,12 +66,15 @@ namespace Translation.Application.Tests.Unit
             sut.CreateTranslate(dto);
 
             var language = new LanguageBuilder().WithAbbrevation(dto.LanguageAbbr).Build();
+            var translations = new List<Domain.Entities.Translation>(){
+                new Domain.Entities.Translation(language, dto.Translation)
+            };
+
             var phraseType = new PhraseTypeBuilder().WithName(dto.PhraseType).Build();
             var phrase = new PhraseBuilder().WithId(dto.PhraseId).WithPhraseType(phraseType).Build();
             var expectedTranslate = new TranslateBuilder()
-                .WithLanguage(language)
                 .WithPhrase(phrase)
-                .WithTranslation(dto.Translation).Build();
+                .WithTranslations(translations).Build();
             repository.Received(1).Save(ArgExt.Compare(expectedTranslate, new TranslatorEqualityComparer()));
         }
 
@@ -88,12 +92,15 @@ namespace Translation.Application.Tests.Unit
             var language = new LanguageBuilder().WithAbbrevation(dto.LanguageAbbr).Build();
             var phraseType = new PhraseTypeBuilder().WithName(dto.PhraseType).Build();
             var phrase = new PhraseBuilder().WithId(dto.PhraseId).WithPhraseType(phraseType).Build();
+            var translations = new List<Domain.Entities.Translation>()
+            {
+                new Domain.Entities.Translation(language, dto.Translation)
+            };
             var expectedTranslate = new TranslateBuilder()
                 .WithId(dto.Id)
-                .WithLanguage(language)
                 .WithPhrase(phrase)
-                .WithTranslation(dto.Translation).Build();
-            translate.Received().Update(phrase, language, dto.Translation);
+                .WithTranslations(translations).Build();
+            translate.Received().Update(phrase, translations);
         }
     }
 }

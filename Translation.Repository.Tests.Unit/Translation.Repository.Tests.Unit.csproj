@@ -13,4 +13,9 @@
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.Entities.Tests.Util\Domain.Entities.Tests.Util.csproj" />
+    <ProjectReference Include="..\InfraStructure.Repository\InfraStructure.Repository.csproj" />
+  </ItemGroup>
+
 </Project>

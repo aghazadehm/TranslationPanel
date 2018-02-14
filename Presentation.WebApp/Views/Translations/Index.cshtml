@@ -11,30 +11,32 @@
                 <td>پارسی </td>
                 <td>گونه</td>
                 <td>زبان برگردان</td>
-                <td>برگردان</td>
+                <td colspan="2">برگردان</td>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@*@item.Id*@</td>
+                    @*<td>@item.Id</td>*@
                     <td>@item.PhraseId</td>
                     <td>@item.PhraseText</td>
                     <td>@item.PhraseTypeName</td>
                     <td>@item.LanguageAbbr</td>
                     @*<td>@item.Translation</td>*@
-                    <td>
-                        <div class="form-group">
-                            <form method="post" action="translations/SaveTranslate">
+                    <form method="post" action="translations/SaveTranslate">
+                        <td style="border-left:none">
+                            <div class="form-group">
                                 <input class="form-control" name="value" type="text" value="@item.Translation" />
                                 <input name="lang" type="hidden" value="@item.LanguageAbbr" />
                                 <input name="phraseId" type="hidden" value="@item.PhraseId" />
                                 <input name="phraseType" type="hidden" value="@item.PhraseTypeName" />
-                                <button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-floppy-disk"></i></button>
-                            </form>
-                        </div>
-                    </td>
+                            </div>
+                        </td>
+                        <td style="border-right:none">
+                            <button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-floppy-disk"></i></button>
+                        </td>
+                    </form>
                 </tr>
             }
         </tbody>
@@ -49,13 +51,13 @@
     <h1 style="background-color:#ff0000">سر تیتر</h1>
 }
 @*<style>
-    .td1 {
-        width: 100px;
-        border: 1px solid #0094ff;
-        text-align: center
-    }
+        .td1 {
+            width: 100px;
+            border: 1px solid #0094ff;
+            text-align: center
+        }
 
-    table {
-        margin-top: 20px;
-    }
-</style>*@
+        table {
+            margin-top: 20px;
+        }
+    </style>*@
