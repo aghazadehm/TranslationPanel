@@ -17,7 +17,7 @@ namespace InfraStructure.Repository
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Data Source=172.16.1.18;Initial Catalog=Auction;Persist Security Info=True;User ID=aghazadeh;Password=ime.2494829");
+                @"*************************");
         }
     }
 }
